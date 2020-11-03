@@ -63,6 +63,8 @@ class MainFragment : Fragment() {
                         return@let
 
                     val zoomValue = progressValue.toDouble() / seekBar.max * it
+                    
+                    Log.e("MainFragment zoom value -> ",zoomValue.toString())
                     camera?.setZoom(zoomValue)
                 }
             }
@@ -202,6 +204,8 @@ class MainFragment : Fragment() {
                 // so we just consider that width/ height < 1, which means portrait.
                 val aspectRatio: Float = width / height.toFloat()
                 previewSize = it.getPreviewSize(aspectRatio)
+
+                Log.e("MainFragment -> ",previewSize.toString())
 
                 camera0View.setAspectRatio(previewSize.height, previewSize.width)
                 camera1View.setAspectRatio(previewSize.height, previewSize.width)

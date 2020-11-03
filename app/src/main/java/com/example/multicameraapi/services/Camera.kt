@@ -269,10 +269,14 @@ class Camera constructor(private val cameraManager: CameraManager) {
      */
     fun start(surfaces: List<Surface>) {
         this.surfaces = surfaces
-        if(surfaces.size > 1)
+        if(surfaces.size > 1){
             startDualCamera(surfaces)
-        else
+            Log.e(TAG, "single camera")
+        }
+        else {
             startSingleCamera(surfaces[0])
+            Log.e(TAG, "dual camera")
+        }
     }
 
     fun takePicture(handler: ImageHandler) {
